@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DamageStats" format=3 uid="uid://3268vsy5w5kd"]
+
+[ext_resource type="Script" uid="uid://ddl1kv0j1b0fx" path="res://entities/resources/damage_stats.gd" id="1_ts5uk"]
+
+[resource]
+script = ExtResource("1_ts5uk")
+damageNumber = 1
+stun = true
+stunTime = 1.0
+metadata/_custom_type_script = "uid://ddl1kv0j1b0fx"
