@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="EntitieStats" format=3 uid="uid://caymme8pb4ah2"]
-
-[ext_resource type="Script" uid="uid://c6toauqoo3nsq" path="res://entities/resources/entitie_stats.gd" id="1_5qm5c"]
-
-[resource]
-script = ExtResource("1_5qm5c")
-health = 3
-moveSpeed = 1
-metadata/_custom_type_script = "uid://c6toauqoo3nsq"
