@@ -10,14 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Teste"
+config/name="Filosoluta"
 run/main_scene="uid://cgv15l2tllup6"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://assets/images/icon.svg"
+config/icon="uid://d3rhf7mmhinjb"
 
 [autoload]
 
-Main="*uid://bvwthlk25qj8y"
+GameController="*uid://bwa75fe8iwy25"
 
 [display]
 

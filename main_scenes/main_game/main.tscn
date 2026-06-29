@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d0dpqro3cafib"]
+
+[ext_resource type="PackedScene" uid="uid://h7sc38ldef0a" path="res://entities/player/player.tscn" id="1_8e5s8"]
+[ext_resource type="Script" uid="uid://bkel0impto3nt" path="res://main_scenes/main_game/main.gd" id="1_v517d"]
+[ext_resource type="PackedScene" uid="uid://bqjj85hm3qlyp" path="res://entities/enemy/enemy.tscn" id="2_i0cl8"]
+[ext_resource type="Texture2D" uid="uid://vlu05c1atn4a" path="res://assets/images/backgrounds/background.png" id="2_xxyhp"]
+
+[node name="Main" type="Node2D" unique_id=1903541426]
+position = Vector2(-20, -1)
+script = ExtResource("1_v517d")
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=342970501]
+texture_filter = 1
+position = Vector2(180, 91)
+texture = ExtResource("2_xxyhp")
+
+[node name="Enemy" parent="." unique_id=1746242185 instance=ExtResource("2_i0cl8")]
+position = Vector2(330, 134)
+
+[node name="Player" parent="." unique_id=1509402790 instance=ExtResource("1_8e5s8")]
+position = Vector2(38, 133)

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cgv15l2tllup6"]
+
+[ext_resource type="Script" uid="uid://i3lsb3q74kjv" path="res://main_scenes/main_menu/main_menu.gd" id="1_gvura"]
+
+[node name="MainMenu" type="Node2D" unique_id=527019577]
+script = ExtResource("1_gvura")
+
+[node name="MenuText" type="RichTextLabel" parent="." unique_id=808529544]
+texture_filter = 1
+offset_left = 54.0
+offset_top = 23.0
+offset_right = 159.25
+offset_bottom = 47.75
+scale = Vector2(2, 2)
+text = "FILOSOLUTA"
+
+[node name="PlayButton" type="Button" parent="." unique_id=1166860119]
+offset_left = 124.0
+offset_top = 77.0
+offset_right = 182.0
+offset_bottom = 108.0
+text = "JOGAR"
+
+[node name="EnciclopediaButton" type="Button" parent="." unique_id=260513537]
+offset_left = 92.0
+offset_top = 112.0
+offset_right = 214.0
+offset_bottom = 143.0
+text = "ENCICLOPEDIA"
+
+[node name="ExitButton" type="Button" parent="." unique_id=204818748]
+offset_left = 95.0
+offset_top = 146.0
+offset_right = 217.0
+offset_bottom = 177.0
+text = "SAIR"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="EnciclopediaButton" to="." method="_on_enciclopedia_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

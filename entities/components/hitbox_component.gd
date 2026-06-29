@@ -18,4 +18,4 @@ func hitbox_collided(hitbox: HitboxComponent) -> void:
 			print("parry")
 		else:
 			print("colisao")
-			hitbox.healthComponent.damage(damageStats.damageNumber)
+		hitbox.healthComponent.damage(damageStats.damageNumber)

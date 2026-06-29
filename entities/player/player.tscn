@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://i1orkjkix6g3"]
+[gd_scene format=3 uid="uid://h7sc38ldef0a"]
 
 [ext_resource type="Script" uid="uid://cf1hscqo8douw" path="res://state_machine/state_machine.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://c5iu6rtq77rro" path="res://entities/player/player.gd" id="1_qjkh3"]
-[ext_resource type="Resource" uid="uid://ct55geol8utk1" path="res://entities/player/player_stats.tres" id="2_8fjmc"]
+[ext_resource type="Script" uid="uid://c6toauqoo3nsq" path="res://entities/resources/entitie_stats.gd" id="2_wvtmh"]
 [ext_resource type="Texture2D" uid="uid://d3rhf7mmhinjb" path="res://assets/images/fighters/socrates/socrates.png" id="3_wvtmh"]
 [ext_resource type="Script" uid="uid://c3pwik7h0xucn" path="res://entities/player/states/movement_state.gd" id="3_yw30f"]
 [ext_resource type="Script" uid="uid://cdtu18ewkxuc1" path="res://entities/states/entitie_stunned_state.gd" id="4_qjkh3"]
@@ -11,14 +11,20 @@
 [ext_resource type="Script" uid="uid://n50l8l8xfyul" path="res://entities/components/hitbox_component.gd" id="8_26q78"]
 [ext_resource type="Script" uid="uid://bkwncca5rbti4" path="res://state_machine/state_text.gd" id="9_bectd"]
 
+[sub_resource type="Resource" id="Resource_7thud"]
+script = ExtResource("2_wvtmh")
+health = 3
+moveSpeed = 1
+metadata/_custom_type_script = "uid://c6toauqoo3nsq"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bectd"]
-size = Vector2(14, 23)
+size = Vector2(15, 23)
 
 [node name="Player" type="CharacterBody2D" unique_id=1509402790 node_paths=PackedStringArray("entitieStateMachine") groups=["player"]]
 collision_mask = 2
 script = ExtResource("1_qjkh3")
 entitieStateMachine = NodePath("StateMachine")
-entitieStats = ExtResource("2_8fjmc")
+entitieStats = SubResource("Resource_7thud")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1712278773]
 texture_filter = 1
@@ -50,7 +56,7 @@ healthComponent = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://n50l8l8xfyul"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1423150715]
-position = Vector2(-2, -0.5)
+position = Vector2(-2.5, -0.5)
 shape = SubResource("RectangleShape2D_bectd")
 
 [node name="StateText" type="RichTextLabel" parent="." unique_id=1528637495]
