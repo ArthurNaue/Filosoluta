@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cgv15l2tllup6"]
 
-[ext_resource type="Script" uid="uid://i3lsb3q74kjv" path="res://main_scenes/main_menu.gd" id="1_gvura"]
+[ext_resource type="Script" uid="uid://i3lsb3q74kjv" path="res://main_scenes/main_menu/main_menu.gd" id="1_gvura"]
 
 [node name="MainMenu" type="Node2D" unique_id=527019577]
 script = ExtResource("1_gvura")
@@ -28,13 +28,5 @@ offset_right = 385.0
 offset_bottom = 262.0
 text = "ENCICLOPEDIA"
 
-[node name="Button" type="Button" parent="." unique_id=485944414]
-offset_left = 304.0
-offset_top = 288.0
-offset_right = 347.0
-offset_bottom = 319.0
-text = "SAIR"
-
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="EnciclopediaButton" to="." method="_on_enciclopedia_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

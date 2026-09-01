@@ -3,19 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://bqjj85hm3qlyp" path="res://entities/enemy/enemy.tscn" id="2_i0cl8"]
 [ext_resource type="Texture2D" uid="uid://vlu05c1atn4a" path="res://assets/images/backgrounds/background.png" id="2_xxyhp"]
 
-[sub_resource type="GDScript" id="GDScript_n2yxn"]
-script/source = "extends Node2D
-class_name MainGame
-"
-
 [node name="Main" type="Node2D" unique_id=1903541426]
 position = Vector2(-20, -1)
-script = SubResource("GDScript_n2yxn")
 
 [node name="Ground" type="Sprite2D" parent="." unique_id=342970501]
 texture_filter = 1
-position = Vector2(180, 91)
+position = Vector2(339.5, 181)
+scale = Vector2(1.996875, 2)
 texture = ExtResource("2_xxyhp")
 
 [node name="Enemy" parent="." unique_id=1746242185 instance=ExtResource("2_i0cl8")]
-position = Vector2(330, 134)
+position = Vector2(619, 270)
