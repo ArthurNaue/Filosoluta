@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://i1orkjkix6g3"]
+
+[ext_resource type="Script" uid="uid://cf1hscqo8douw" path="res://state_machine/state_machine.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://c5iu6rtq77rro" path="res://entities/player/player.gd" id="1_qjkh3"]
+[ext_resource type="Resource" uid="uid://ct55geol8utk1" path="res://entities/player/player_stats.tres" id="2_8fjmc"]
+[ext_resource type="Texture2D" uid="uid://cv4sskkh0o3cg" path="res://assets/images/icon.svg" id="3_gmlin"]
+[ext_resource type="Script" uid="uid://c3pwik7h0xucn" path="res://entities/player/states/movement_state.gd" id="3_yw30f"]
+[ext_resource type="Script" uid="uid://cdtu18ewkxuc1" path="res://entities/states/stunned_state.gd" id="4_qjkh3"]
+[ext_resource type="Script" uid="uid://cjbkicxktblhs" path="res://entities/components/health_component.gd" id="7_26q78"]
+[ext_resource type="Script" uid="uid://n50l8l8xfyul" path="res://entities/components/hitbox_component.gd" id="8_26q78"]
+[ext_resource type="Script" uid="uid://bkwncca5rbti4" path="res://state_machine/state_text.gd" id="9_bectd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bectd"]
+size = Vector2(127, 127)
+
+[node name="Player" type="CharacterBody2D" unique_id=1509402790 groups=["player"]]
+collision_mask = 2
+script = ExtResource("1_qjkh3")
+entitieStats = ExtResource("2_8fjmc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1712278773]
+texture = ExtResource("3_gmlin")
+
+[node name="StateMachine" type="Node2D" parent="." unique_id=1691695057 node_paths=PackedStringArray("initialState")]
+script = ExtResource("1_dovo2")
+initialState = NodePath("PlayerMovementState")
+metadata/_custom_type_script = "uid://cf1hscqo8douw"
+
+[node name="PlayerMovementState" type="Node2D" parent="StateMachine" unique_id=647241944]
+script = ExtResource("3_yw30f")
+
+[node name="EntitieStunnedState" type="Node2D" parent="StateMachine" unique_id=1783126804]
+script = ExtResource("4_qjkh3")
+metadata/_custom_type_script = "uid://cdtu18ewkxuc1"
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=289789991]
+script = ExtResource("7_26q78")
+metadata/_custom_type_script = "uid://cjbkicxktblhs"
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=46947172 node_paths=PackedStringArray("healthComponent")]
+script = ExtResource("8_26q78")
+healthComponent = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://n50l8l8xfyul"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1423150715]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_bectd")
+
+[node name="StateText" type="RichTextLabel" parent="." unique_id=1528637495]
+offset_left = -110.0
+offset_top = -145.0
+offset_right = 92.0
+offset_bottom = -108.0
+script = ExtResource("9_bectd")
+metadata/_custom_type_script = "uid://bkwncca5rbti4"

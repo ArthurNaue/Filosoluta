@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EntitieStats" format=3 uid="uid://cl4c04io3o3x2"]
+
+[ext_resource type="Script" uid="uid://c6toauqoo3nsq" path="res://entities/resources/entitie_stats.gd" id="1_bwhpi"]
+[ext_resource type="Texture2D" uid="uid://d3rhf7mmhinjb" path="res://assets/images/fighters/socrates/socrates.png" id="2_xaxfq"]
+
+[resource]
+script = ExtResource("1_bwhpi")
+sprite = ExtResource("2_xaxfq")
+health = 3
+moveSpeed = 1
+metadata/_custom_type_script = "uid://c6toauqoo3nsq"

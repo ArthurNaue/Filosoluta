@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://mlm2ly3jbc25"]
+
+[ext_resource type="Script" uid="uid://c5iu6rtq77rro" path="res://entities/player/player.gd" id="1_m3yc4"]
+[ext_resource type="Resource" uid="uid://cl4c04io3o3x2" path="res://entities/philosophers/socrates/socrates_stats.tres" id="2_gl1p8"]
+[ext_resource type="Texture2D" uid="uid://d3rhf7mmhinjb" path="res://assets/images/fighters/socrates/socrates.png" id="2_s5vgy"]
+[ext_resource type="Script" uid="uid://cf1hscqo8douw" path="res://state_machine/state_machine.gd" id="3_gl1p8"]
+[ext_resource type="Script" uid="uid://c3pwik7h0xucn" path="res://entities/player/states/movement_state.gd" id="4_d7rxr"]
+[ext_resource type="Script" uid="uid://cdtu18ewkxuc1" path="res://entities/states/entitie_stunned_state.gd" id="5_7v7wf"]
+[ext_resource type="Script" uid="uid://cg77mgcst4knl" path="res://entities/states/entitie_parry_state.gd" id="6_vxfvo"]
+[ext_resource type="Script" uid="uid://cjbkicxktblhs" path="res://entities/components/health_component.gd" id="7_ssbe1"]
+[ext_resource type="Script" uid="uid://n50l8l8xfyul" path="res://entities/components/hitbox_component.gd" id="8_pxxuo"]
+[ext_resource type="Script" uid="uid://bkwncca5rbti4" path="res://state_machine/state_text.gd" id="9_hrqsc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke3jp"]
+size = Vector2(15, 23)
+
+[node name="Socrates" type="CharacterBody2D" unique_id=399425830 node_paths=PackedStringArray("entitieStateMachine")]
+script = ExtResource("1_m3yc4")
+entitieStateMachine = NodePath("StateMachine")
+entitieStats = ExtResource("2_gl1p8")
+metadata/_custom_type_script = "uid://c5iu6rtq77rro"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=595038867]
+texture_filter = 1
+texture = ExtResource("2_s5vgy")
+
+[node name="StateMachine" type="Node2D" parent="." unique_id=1789278297 node_paths=PackedStringArray("initialState")]
+script = ExtResource("3_gl1p8")
+initialState = NodePath("PlayerMovementState")
+metadata/_custom_type_script = "uid://cf1hscqo8douw"
+
+[node name="PlayerMovementState" type="Node2D" parent="StateMachine" unique_id=1794946398]
+script = ExtResource("4_d7rxr")
+
+[node name="EntitieStunnedState" type="Node2D" parent="StateMachine" unique_id=777234330]
+script = ExtResource("5_7v7wf")
+metadata/_custom_type_script = "uid://cdtu18ewkxuc1"
+
+[node name="EntitieParryState" type="Node2D" parent="StateMachine" unique_id=1639460961]
+script = ExtResource("6_vxfvo")
+metadata/_custom_type_script = "uid://cg77mgcst4knl"
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1852786235]
+script = ExtResource("7_ssbe1")
+metadata/_custom_type_script = "uid://cjbkicxktblhs"
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=1656259293 node_paths=PackedStringArray("healthComponent")]
+script = ExtResource("8_pxxuo")
+healthComponent = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://n50l8l8xfyul"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1934933360]
+position = Vector2(-2.5, -0.5)
+shape = SubResource("RectangleShape2D_ke3jp")
+
+[node name="StateText" type="RichTextLabel" parent="." unique_id=1870007912]
+offset_left = -32.0
+offset_top = -30.0
+offset_right = 170.0
+offset_bottom = 7.0
+scale = Vector2(0.3, 0.3)
+script = ExtResource("9_hrqsc")
+metadata/_custom_type_script = "uid://bkwncca5rbti4"

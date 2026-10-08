@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bebljwt5b1te0"]
+
+[ext_resource type="Script" uid="uid://uadiph3ksc07" path="res://main_scenes/character_selection/character_selection.gd" id="1_pq4m0"]
+
+[node name="Character_Selection" type="Node2D" unique_id=1824837134]
+script = ExtResource("1_pq4m0")
